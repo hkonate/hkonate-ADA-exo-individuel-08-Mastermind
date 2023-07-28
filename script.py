@@ -1,14 +1,16 @@
-code= ["red","green"]
+code= ["red","green","green","red"]
 def correctData(playerCombo):
-    if len(playerCombo) != 2:
+    if len(playerCombo) != 4:
         return False
-    for color in playerCombo:
-        if color.lower() not in code:
+    index = 0
+    while index < len(code):
+        if playerCombo[index].lower() != code[index]:
             return False
+        index += 1
     return True
 
 def gamePlay():
-    response = input("Enter your color's combo, please ! Colors must be separate by commas format and no space are allowed(red,yellow) ")
+    response = input("Enter your color's combo, please ! Colors must be separate by commas format and no space are allowed(color,color) ")
     itIsTheEnd = correctData(response.split(","))
     if itIsTheEnd == False:
         gamePlay()

@@ -7,5 +7,12 @@ def correctData(playerCombo):
             return False
     return True
 
-response = input("Enter your color's combo, please ! Colors must be separate by commas format and no space are allowed(red,yellow) ")
-print(correctData(response.split(",")))
+def gamePlay():
+    response = input("Enter your color's combo, please ! Colors must be separate by commas format and no space are allowed(red,yellow) ")
+    itIsTheEnd = correctData(response.split(","))
+    if itIsTheEnd == False:
+        gamePlay()
+    else:
+        print("Congratulation you found the secret combo !")
+
+gamePlay()
